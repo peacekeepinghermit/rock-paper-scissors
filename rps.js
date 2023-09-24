@@ -1,56 +1,58 @@
-//rock paper scissors game
-//user presented with prompt 'let's play rock paper scissors!'
-//player makes one choice from rock paper scissors
+//ROCK PAPER SCISSORS game
+//user presented with prompt 'let's play ROCK PAPER SCISSORS!'
+//player makes one choice from ROCK PAPER SCISSORS
     //player choice should be case-insensitive
-//computer makes one choice from rock paper scissors at random
+//computer makes one choice from ROCK PAPER SCISSORS at random
 //compare computer choice with player choice
-//rock>scissors
-//scissors>paper
-//paper>scissors
+//ROCK>SCISSORS
+//SCISSORS>PAPER
+//PAPER>SCISSORS
 //if player choice is greater than computer choice, player wins
 //else player loses and computer wins
 //reset game to start again
 
 
+
+//randomized computer play with equal chance at selection
 const randomValue = Math.random();
 const numOutcomes = 3;
 const outcomeProbability = 1 / numOutcomes;
 function getComputerChoice() {
     if (randomValue < outcomeProbability) {
-        return "rock";
+        return "ROCK";
     }   else if (randomValue < 2 * outcomeProbability) {
-        return "paper";
+        return "PAPER";
     }   else {
-        return "scissors";
+        return "SCISSORS";
     }
 }
 console.log(getComputerChoice())
 
-let playerSelection = prompt("Rock, Paper, Scissors!");
-    console.log(playerSelection)
-
-
+//player input provided via prompt in js
+let playerChoice = prompt("ROCK, PAPER, SCISSORS!");
+let playerSelection = playerChoice.toUpperCase();    
+console.log(playerSelection)
 
 
 
 const computerSelection = getComputerChoice();
 
 
-
+//main game logic, comparing strings indirectly by providing context of ROCK PAPER SCISSORS
 function playRound(playerSelection, computerSelection) {
-    
-    if (playerSelection == "rock" && computerSelection == "scissors") {
-    return "You Win! Rock beats Scissors";
-    }   else if (playerSelection == "paper" && computerSelection == "rock") {
-    return "You Win! Paper beats Rock";
-    }   else if (playerSelection == "scissors" && computerSelection == "paper") {
-    return "You Win! Scissors beats Paper";
-    }   else if (playerSelection == "rock" && computerSelection == "paper") {
-    return "You Lose! Paper beats Rock";
-    }   else if (playerSelection == "paper" && computerSelection == "scissors") {
-    return "You Lose! Scissors beats Paper";
-    }   else if (playerSelection == "scissors" && computerSelection == "rock") {
-    return "You Lose! Rock beats Scissors";
+
+        if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
+    return "You Win! ROCK beats SCISSORS";
+    }   else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
+    return "You Win! PAPER beats ROCK";
+    }   else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
+    return "You Win! SCISSORS beats PAPER";
+    }   else if (playerSelection == "ROCK" && computerSelection == "PAPER") {
+    return "You Lose! PAPER beats ROCK";
+    }   else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
+    return "You Lose! SCISSORS beats PAPER";
+    }   else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
+    return "You Lose! ROCK beats SCISSORS";
     }   
     else (playerSelection == computerSelection)
     return "You Tied!";
